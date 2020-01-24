@@ -17,9 +17,10 @@ public class FetchDataApp {
 
     public static void constructUrl(String path) throws IOException
     {
-        String _clientKey = "cg085gp1blld8mn:c2pvgpmopdbyqtc";
-        String base_url = "https://api.tradingeconomics.com/historical/country/new%20zealand/indicator/gdp?c=cg085gp1blld8mn:c2pvgpmopdbyqtc&format=xml";
-        String auth = base_url + path + "?c=" + _clientKey;
+
+        String base_url = " reddit.com/r/RoastMe/search.json";
+        String format = ".json?print=pretty";
+        String auth = base_url;
 
         URL obj = new URL(auth);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -33,6 +34,8 @@ public class FetchDataApp {
             response.append(inputLine);
         }
         in.close();
+        
+
 
 
         System.out.println(response.toString());
