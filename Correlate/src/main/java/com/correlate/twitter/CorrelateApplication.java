@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.google.gson.*;
 
+import twitter4j.FilterQuery;
 import twitter4j.Query;
 import twitter4j.QueryResult;
 import twitter4j.Status;
@@ -22,15 +23,26 @@ public class CorrelateApplication {
 	public static void main(String[] args)
 			throws IOException, TwitterException {
 		SpringApplication.run(CorrelateApplication.class, args);
+		
 
+		
 		Twitter twitter = TwitterFactory.getSingleton();
 		Query query = new Query("Artificial Intelligence");
 		query.setCount(10);
 		QueryResult result = twitter.search(query);
+		
+		String keyword = "ai";	
+		UserList list = twitter.createUserList(keyword, true, "Auto-Generated");
+		
 		for (Status status : result.getTweets()) {
+			
+			if (status.getUser().getDescription().toLowerCase().contains("ai ")) {
 
-			System.out.printf("@%s:\n%s\n",status.getUser().getScreenName(),status.getUser().getDescription());
-			System.out.println("=============================================================================");
+				twitter.createUserListMember(listId, userId)
+				System.out.printf("@%s:\n%s\n",status.getUser().getScreenName(),status.getUser().getDescription());
+				System.out.println("===========================================================================");
+			}
+			
 
 		}
 		// UserList list = twitter.createUserList("test2", true, "test2");
@@ -40,4 +52,5 @@ public class CorrelateApplication {
 		Gson gson = new Gson();
 
 	}
+	
 }
