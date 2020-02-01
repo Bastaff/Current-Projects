@@ -24,14 +24,18 @@ public class CorrelateApplication {
 		SpringApplication.run(CorrelateApplication.class, args);
 
 		Twitter twitter = TwitterFactory.getSingleton();
-		Query query = new Query("blank");
+		Query query = new Query("Artificial Intelligence");
+		query.setCount(10);
 		QueryResult result = twitter.search(query);
 		for (Status status : result.getTweets()) {
-			System.out.println("@" + status.getUser().getScreenName() + ":");
+
+			System.out.printf("@%s:\n%s\n",status.getUser().getScreenName(),status.getUser().getDescription());
+			System.out.println("=============================================================================");
+
 		}
-		UserList list = twitter.createUserList("test2", true, "test2");
-		System.out.println("Successfully created a list (id:" + list.getId()
-				+ ", slug:" + list.getSlug() + ").");
+		// UserList list = twitter.createUserList("test2", true, "test2");
+		// System.out.println("Successfully created a list (id:" + list.getId()
+		// + ", slug:" + list.getSlug() + ").");
 
 		Gson gson = new Gson();
 
