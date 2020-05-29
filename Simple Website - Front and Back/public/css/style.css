@@ -14,15 +14,24 @@ body {
     text-align: center;
     font-size: 30px;
     font-weight: 800;
+    box-shadow: 0px 0px 5px 10px #dedede;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .main {
     display: flexbox;
     width: 25%;
     margin: auto;
+    margin-top: 30px;
 }
 
 .usrbox, .passbox, .emailbox, .buttoncheck {
     text-align: justify;
     
+}
+
+
+.img {
+    width: 50%;
 }
