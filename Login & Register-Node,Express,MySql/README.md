@@ -1,5 +1,8 @@
 # Node.js Login & Register Application
 
+## Update - Added a real time Chat
+<img src="https://imgur.com/1qXV6zG.png" width="600" title="Movable chat">
+
 ## Registration
 <p>When registering the Last Name field is optional and there is a Subscribe button as well</p>
 <img src="https://imgur.com/JcNGz7O.png" width="600" title="Registration Page">

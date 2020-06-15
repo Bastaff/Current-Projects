@@ -1,37 +1,48 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.5;
-    margin: 0em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  margin: 0em;
 }
 
-
 .bar {
-    background: #f1f1f1;
-    color: #2e2d41;
-    display: block;
-    overflow: hidden;
-    width: 100%;
-    text-align: center;
-    font-size: 30px;
-    font-weight: 800;
-    box-shadow: 0px 0px 5px 10px #dedede;
-    padding-top: 10px;
-    padding-bottom: 10px;
+  background: #f1f1f1;
+  color: #2e2d41;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 800;
+  box-shadow: 0px 0px 5px 10px #dedede;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .main {
-    display: flexbox;
-    width: 25%;
-    margin: auto;
-    margin-top: 30px;
+  display: flexbox;
+  width: 25%;
+  margin: auto;
+  margin-top: 30px;
+  grid-column-start: 2;
+  grid-column-end: 2;
 }
 
-.usrbox, .passbox, .emailbox, .buttoncheck {
-    text-align: justify;
-    
+.usrbox,
+.passbox,
+.emailbox,
+.buttoncheck {
+  text-align: left;
 }
-
 
 .img {
-    width: 50%;
+  width: 50%;
 }
+
+.hero {
+  display: grid;
+  grid-template-columns: 10% auto 10%;
+  grid-template-rows: auto;
+  text-align: center;
+}
+
+

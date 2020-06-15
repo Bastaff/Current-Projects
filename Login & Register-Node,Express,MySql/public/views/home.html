@@ -1,21 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link  rel="stylesheet" type="text/css" href="/css/style.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/chat.css" />
     <title>Home</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="bar">
-        <h1>HOME</h1>
+      <h1>HOME</h1>
     </div>
+
+
+
+  <div class="hero">
+
 
     <div class="main">
-        <h2 style="text-align: center;">You made it!</h2>
-        <h3 style="text-align: center;">Here's a Tik Tok</h3>
+      <h2 style="text-align: center;">You made it!</h2>
     </div>
 
-    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@itsmichellegulbransen/video/6831189302676917509" data-video-id="6831189302676917509" style="max-width: 605px;min-width: 325px;" ><section> <a target="_blank" title="@itsmichellegulbransen" href="https://www.tiktok.com/@itsmichellegulbransen">@itsmichellegulbransen</a> <p>Bc a BUNCH of you asked to see the full video of Teddy with the butterfly, here you go! 🥰 <a title="tiktokanimals" target="_blank" href="https://www.tiktok.com/tag/tiktokanimals">##tiktokanimals</a> <a title="frenchiesoftiktok" target="_blank" href="https://www.tiktok.com/tag/frenchiesoftiktok">##frenchiesoftiktok</a> <a title="meetmypet" target="_blank" href="https://www.tiktok.com/tag/meetmypet">##meetmypet</a> <a title="ratethings" target="_blank" href="https://www.tiktok.com/tag/ratethings">##ratethings</a></p> <a target="_blank" title="♬ Buttercup - Jack Stauber" href="https://www.tiktok.com/music/Buttercup-6758172399012677634">♬ Buttercup - Jack Stauber</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
-</body>
+    <div id="draggable" class="chat-container">
+      <div class="chat">
+        <div class="chat-handle"><h3>Chat</h3></div>
+        <ul id="messages"></ul>
+        <form action="">
+          <input id="m" autocomplete="off" /><button>Send</button>
+        </form>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+
+
+    <script>
+      $(function () {
+        var socket = io();
+        $("form").submit(function (e) {
+          e.preventDefault(); // prevents page reloading
+          socket.emit("chat message", $("#m").val());
+          $("#m").val("");
+          return false;
+        });
+        socket.on("chat message", function (msg) {
+          $("#messages").append($("<li>").text(msg));
+        });
+      });
+    </script>
+
+
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script>
+      $(function() {  
+        $("#draggable").draggable();  
+      });
+    </script>
+
+  </body>
 </html>
